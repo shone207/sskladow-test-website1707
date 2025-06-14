@@ -338,7 +338,7 @@ header {
 .banner {
   width: 100%;
   height: 300px;
-  background: url("/banner01.JPG") center/cover no-repeat;
+  background: url("banner01.JPG") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -459,7 +459,7 @@ header {
 }
 
 .prijatelj p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #030f11;
 }
 
