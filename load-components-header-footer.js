@@ -9,14 +9,6 @@ function loadComponent(id, file) {
     element.innerHTML = cached;
     return;
   }
-
-  fetch(file)
-    .then((response) => response.text())
-    .then((data) => {
-      element.innerHTML = data;
-      sessionStorage.setItem(file, data);
-    })
-    .catch((err) => console.error("Component load error:", err));
 }
 
 // Load the components once the page DOM is ready
