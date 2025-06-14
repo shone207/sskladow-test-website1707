@@ -1,0 +1,44 @@
+.timetable-container {
+  padding: 40px;
+}
+
+.raspored-zvonjenja {
+  margin: 0 auto;
+  table-layout: auto; /* Allow cell width to adapt to text */
+  width: auto;
+}
+
+.raspored-zvonjenja td,
+.raspored-zvonjenja th {
+  background-color: #f0f0f0;
+  color: #030f11;
+  border: 1px solid #14598a;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1.4rem;
+  min-width: 120px;
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.raspored-zvonjenja td:first-child,
+.raspored-zvonjenja th:first-child {
+  color: #f0f0f0;
+  background-color: #14598a;
+  font-weight: 500;
+}
+
+.filler-section {
+  height: 200px;
+}
+
+@media (max-width: 768) {
+  .filler-section {
+    display: none;
+  }
+
+  .raspored-zvonjenja {
+    width: 100%;
+  }
+}

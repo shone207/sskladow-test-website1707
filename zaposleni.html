@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Средња школа у Кладову</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./zaposleni.css" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+    <script src="load-components-header-footer.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Header and Navigation -->
+    <div id="header"></div>
+
+    <main>
+      <!-- Administracija -->
+
+      <h1 style="padding: 20px; text-align: center">Администрација</h1>
+
+      <div class="employees">
+        <div class="employees-container">
+          <!-- Employee 01 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+          <!-- Employee 02 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 03 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 04 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nastavno osoblje -->
+
+      <h1 style="padding: 20px; text-align: center">Наставно особље</h1>
+
+      <div class="employees">
+        <div class="employees-container">
+          <!-- Employee 01 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+          <!-- Employee 02 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 03 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 04 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="employees">
+        <div class="employees-container">
+          <!-- Employee 01 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+          <!-- Employee 02 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 03 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-m.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+
+          <!-- Employee 04 -->
+          <div class="employee-card">
+            <img src="zaposleni-slike/employee-f.jpg" alt="Employee Photo" />
+            <div class="employee-info">
+              <strong>Име Презиме</strong><br />
+              <span>Професор</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filler-section"></div>
+    </main>
+
+    <!-- Footer -->
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+
+    <!-- Burger -->
+    <script src="index.js"></script>
+    <script>
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav-links");
+
+      burger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    </script>
+
+    <!-- Header and Footer -->
+    <script src="include.js"></script>
+    <script>
+      loadHTML("header", "header.html", () => {
+        // Only run burger logic *after* header is loaded
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        burger.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      });
+
+      loadHTML("footer", "footer.html");
+    </script>
+  </body>
+</html>

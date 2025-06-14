@@ -1,0 +1,139 @@
+/* Base list styles for both light and dark sections */
+.document-list-light ul,
+.document-list-dark ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.document-list-light li,
+.document-list-dark li {
+  margin-bottom: 0.5rem;
+}
+
+/* Light section styles */
+.documents-section-light {
+  background-color: #f0f0f0;
+  padding: 2rem 1rem;
+}
+
+.documents-container-light {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.documents-container-light h2 {
+  color: #030f11;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.document-list-light {
+  font-size: 1.1rem;
+}
+
+.document-list-light a {
+  color: #14598a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.document-list-light a:hover,
+.document-list-light a:focus {
+  color: #f44616 !important;
+  outline: none;
+}
+
+.document-list-light a:active,
+.document-list-light a:visited {
+  color: #14598a;
+}
+
+.document-list-light li {
+  color: #030f11;
+}
+
+/* Dark section styles */
+.documents-section-dark {
+  background-color: #14598a;
+  padding: 2rem 1rem;
+}
+
+.documents-container-dark {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.documents-container-dark h2 {
+  color: #f0f0f0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.document-list-dark {
+  font-size: 1.1rem;
+}
+
+.document-list-dark a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.document-list-dark a:hover,
+.document-list-dark a:focus {
+  color: #f44616 !important;
+  outline: none;
+}
+
+.document-list-dark a:active,
+.document-list-dark a:visited {
+  color: #f0f0f0;
+}
+
+.document-list-dark li {
+  color: #f0f0f0;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .documents-container-light h2,
+  .documents-container-dark h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .document-list-light,
+  .document-list-dark {
+    font-size: 1rem;
+  }
+
+  .documents-container-light,
+  .documents-container-dark {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .document-list-light ul,
+  .document-list-dark ul {
+    padding-left: 1rem;
+  }
+
+  .documents-container-dark h2,
+  .documents-container-light h2 {
+    font-size: 1.8rem;
+  }
+
+  .documents-container-dark a,
+  .documents-container-light a {
+    font-size: 1.2rem;
+  }
+
+  .document-list-light li,
+  .document-list-dark li {
+    font-size: 0.95rem;
+  }
+}
