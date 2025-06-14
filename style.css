@@ -107,6 +107,17 @@ header {
   transform: scale(1.05);
 }
 
+.logo img {
+  width: 90px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 60px;
+  }
+}
+
 .ime-skole {
   padding-left: 10px;
   padding-bottom: 10px;
