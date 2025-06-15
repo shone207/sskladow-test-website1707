@@ -9,10 +9,14 @@ function loadComponent(id, file) {
     element.innerHTML = cached;
     return;
   }
-}
 
-// Load the components once the page DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("header", "header.html");
-  loadComponent("footer", "footer.html");
-});
+  fetch(file)
+    .then((response) => response.text())
+    .then((html) => {
+      sessionStorage.setItem(file, html);
+      element.innerHTML = html;
+    })
+    .catch((error) => {
+      console.error(`Failed to load ${file}:`, error);
+    });
+}
