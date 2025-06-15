@@ -1,0 +1,53 @@
+/* ===================================
+   Footer
+=================================== */
+footer {
+  background-color: #030f11;
+  color: #f0f0f0;
+  padding: 40px 20px 20px;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h1 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #8ec8dc;
+}
+
+.footer-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #f0f0f0;
+}
+
+@media (max-width: 1100px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+}
