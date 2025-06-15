@@ -12,7 +12,6 @@ function showBadge() {
 
     const badge = document.createElement("span");
 
-    // If wrapper has special class, apply custom styles
     if (wrapper.classList.contains("special-badge")) {
       badge.style.width = "16px";
       badge.style.height = "16px";
@@ -21,7 +20,6 @@ function showBadge() {
       badge.style.position = "absolute";
       badge.style.top = "-2px";
       badge.style.right = "-4px";
-      // etc.
     } else {
       badge.style.width = "8px";
       badge.style.height = "8px";
@@ -44,16 +42,16 @@ function showBadge() {
 window.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname;
 
-  // If we're on obavestenja.html, mark latest as seen
-  if (currentPage.includes("obavestenja")) {
+  if (currentPage.includes("obavestenja.html")) {
+    // On announcements page, update seen timestamp to newest announcement
     if (window.latestObavestenjeDate) {
       const timestamp = new Date(window.latestObavestenjeDate).getTime();
       localStorage.setItem("seenObavestenjeTime", timestamp);
     }
-    return;
+    return; // No badge needed on the announcements page itself
   }
 
-  // On other pages, compare the latest (from obavestenja page) with seen date
+  // On other pages: fetch announcements and check if there's something new
   fetch("obavestenja.html")
     .then((res) => res.text())
     .then((html) => {
