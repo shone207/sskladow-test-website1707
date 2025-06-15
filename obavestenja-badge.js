@@ -5,35 +5,30 @@ function showBadge() {
 
     wrapper.style.position = "relative";
 
-    // Remove existing badge(s) before adding new one
-    wrapper
-      .querySelectorAll(".obavestenja-badge")
-      .forEach((badge) => badge.remove());
+    // Remove existing badge if any
+    wrapper.querySelectorAll(".obavestenja-badge").forEach((b) => b.remove());
 
     const badge = document.createElement("span");
+
+    badge.className = "obavestenja-badge";
+    badge.style.position = "absolute";
+    badge.style.borderRadius = "50%";
+    badge.style.backgroundColor = "#f44616";
+    badge.style.boxShadow = "0 0 5px rgba(0,0,0,0.3)";
+    badge.style.pointerEvents = "none";
+    badge.title = "Ново обавештење";
 
     if (wrapper.classList.contains("special-badge")) {
       badge.style.width = "16px";
       badge.style.height = "16px";
-      badge.style.backgroundColor = "#f44616";
-      badge.style.boxShadow = "0 0 5px rgba(0,0,0,0.3)";
-      badge.style.position = "absolute";
       badge.style.top = "-2px";
       badge.style.right = "-4px";
     } else {
       badge.style.width = "8px";
       badge.style.height = "8px";
-      badge.style.backgroundColor = "#f44616";
-      badge.style.boxShadow = "0 0 5px rgba(0,0,0,0.3)";
-      badge.style.position = "absolute";
       badge.style.top = "2px";
       badge.style.right = "-10px";
     }
-
-    badge.style.borderRadius = "50%";
-    badge.style.zIndex = "10";
-    badge.style.pointerEvents = "none";
-    badge.title = "Ново обавештење";
 
     wrapper.appendChild(badge);
   });
@@ -42,21 +37,28 @@ function showBadge() {
 window.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname;
 
+  // If we're on obavestenja.html
   if (currentPage.includes("obavestenja.html")) {
-    // On announcements page, update seen timestamp to newest announcement
-    if (window.latestObavestenjeDate) {
-      const timestamp = new Date(window.latestObavestenjeDate).getTime();
-      localStorage.setItem("seenObavestenjeTime", timestamp);
+    const el = document.querySelector(".bb-card-date");
+    if (el) {
+      const raw = el.textContent.trim().replace(/\.$/, "");
+      const [dd, mm, yyyy] = raw.split(".");
+      if (dd && mm && yyyy) {
+        const iso = `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
+        const latestTime = new Date(iso).getTime();
+        localStorage.setItem("seenObavestenjeTime", latestTime);
+      }
     }
-    return; // No badge needed on the announcements page itself
+    return; // Don't show badge on this page
   }
 
-  // On other pages: fetch announcements and check if there's something new
+  // Elsewhere: fetch obavestenja.html to compare dates
   fetch("obavestenja.html")
     .then((res) => res.text())
     .then((html) => {
       const div = document.createElement("div");
       div.innerHTML = html;
+
       const el = div.querySelector(".bb-card-date");
       if (!el) return;
 
@@ -66,6 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const iso = `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
       const latestTime = new Date(iso).getTime();
+
       const seenTime =
         parseInt(localStorage.getItem("seenObavestenjeTime"), 10) || 0;
 
@@ -74,6 +77,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch((err) => {
-      console.error("Failed to fetch latest obavestenja:", err);
+      console.error("Could not fetch obavestenja.html:", err);
     });
 });

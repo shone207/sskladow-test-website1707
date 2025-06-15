@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./zaposleni.css" />
     <link rel="icon" href="./favicon.png" type="image/x-icon" />
     <script src="load-components-header-footer.js" defer></script>
-    <script src="./obavestenja-badge.js"></script>
   </head>
 
   <body>
@@ -164,20 +163,11 @@
       });
     </script>
 
-    <!-- Header and Footer -->
-    <script src="include.js"></script>
-    <script>
-      loadHTML("header", "header.html", () => {
-        // Only run burger logic *after* header is loaded
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
+    <!-- Scripts -->
 
-        burger.addEventListener("click", () => {
-          navLinks.classList.toggle("show");
-        });
-      });
+    <!-- Header and Footer + Burger -->
+    <script src="header-footer.js"></script>
 
-      loadHTML("footer", "footer.html");
-    </script>
+    <script src="./obavestenja-badge.js"></script>
   </body>
 </html>
