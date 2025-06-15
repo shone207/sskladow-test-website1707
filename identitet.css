@@ -160,14 +160,14 @@
   font-size: 1.1rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 600px) {
   .identitet03 {
     padding: 20px 10px;
   }
 
   .identitet03-box {
     padding: 20px 25px 25px 25px;
-    width: 80%;
+    width: 90%;
   }
 
   .identitet03-box h1 {
