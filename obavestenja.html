@@ -8,7 +8,7 @@
   <title>Средња школа у Кладову</title>
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./footer.css" />
+  <link rel="stylesheet" href="./footer.css" />
   <link rel="stylesheet" href="./obavestenja.css" />
   <link rel="icon" href="./favicon.png" type="image/x-icon" />
   <script src="load-components-header-footer.js" defer></script>
@@ -26,7 +26,35 @@
 
         <!-- Obavestenje 01 -->
         <div class="bb-card">
-          <div class="bb-card-date">18. јун 2025.</div>
+          <div class="bb-card-date">30.06.2025.</div>
+          <h3>Тест нотификације</h3>
+
+          <p>
+            Ово је тест обавештење за нотификације.
+          </p>
+
+          <div class="bb-image">
+            <img src="obavestenja-images/fireworks.jpg" alt="Banner" />
+          </div>
+        </div>
+
+        <!-- Obavestenje 01 -->
+        <div class="bb-card">
+          <div class="bb-card-date">21.06.2025.</div>
+          <h3>Тест нотификације</h3>
+
+          <p>
+            Ово је тест обавештење за нотификације.
+          </p>
+
+          <div class="bb-image">
+            <img src="obavestenja-images/fireworks.jpg" alt="Banner" />
+          </div>
+        </div>
+
+        <!-- Obavestenje 01 -->
+        <div class="bb-card">
+          <div class="bb-card-date">18.06.2025.</div>
           <h3>Нови сајт почиње са радом</h3>
 
           <p>
@@ -44,7 +72,7 @@
 
         <!-- Obavestenje 02 -->
         <div class="bb-card">
-          <div class="bb-card-date">17. јун 2025.</div>
+          <div class="bb-card-date">17.06.2025.</div>
           <h3>Обавештење о распореду</h3>
 
           <p>
@@ -55,7 +83,7 @@
 
         <!-- Obavestenje 03 -->
         <div class="bb-card">
-          <div class="bb-card-date">16. јун 2025.</div>
+          <div class="bb-card-date">16.06.2025.</div>
           <h3>Промена у програму екскурзије</h3>
 
           <p>
@@ -70,7 +98,7 @@
 
         <!-- Obavestenje 04 -->
         <div class="bb-card">
-          <div class="bb-card-date">15. јун 2025.</div>
+          <div class="bb-card-date">15.06.2025.</div>
           <h3>Нови библиотечки фонд</h3>
 
           <p>
@@ -81,7 +109,7 @@
 
         <!-- Obavestenje 05 -->
         <div class="bb-card">
-          <div class="bb-card-date">14. јун 2025.</div>
+          <div class="bb-card-date">14.06.2025.</div>
           <h3>Упутство за полагање испита</h3>
 
           <p>
@@ -96,7 +124,7 @@
 
         <!-- Obavestenje 06 -->
         <div class="bb-card">
-          <div class="bb-card-date">13. јун 2025.</div>
+          <div class="bb-card-date">13.06.2025.</div>
           <h3>Обавештење о летњем распусту</h3>
 
           <p>
@@ -107,7 +135,7 @@
 
         <!-- Obavestenje 07 -->
         <div class="bb-card">
-          <div class="bb-card-date">12. јул 2025.</div>
+          <div class="bb-card-date">12.05.2025.</div>
           <h3>Радионице и додатна настава</h3>
 
           <p>
@@ -122,7 +150,7 @@
 
         <!-- Obavestenje 08 -->
         <div class="bb-card">
-          <div class="bb-card-date">11. јул 2025.</div>
+          <div class="bb-card-date">11.05.2025.</div>
           <h3>Спортски догађаји</h3>
 
           <p>
@@ -133,7 +161,7 @@
 
         <!-- Obavestenje 09 -->
         <div class="bb-card">
-          <div class="bb-card-date">10. јул 2025.</div>
+          <div class="bb-card-date">10.05.2025.</div>
           <h3>Пријаве за нову школску годину</h3>
 
           <p>
@@ -148,7 +176,7 @@
 
         <!-- Obavestenje 10 -->
         <div class="bb-card">
-          <div class="bb-card-date">09. јул 2025.</div>
+          <div class="bb-card-date">09.05.2025.</div>
           <h3>Састанак родитеља</h3>
 
           <p>
@@ -159,7 +187,7 @@
 
         <!-- Obavestenje 11 -->
         <div class="bb-card">
-          <div class="bb-card-date">08. јул 2025.</div>
+          <div class="bb-card-date">08.05.2025.</div>
           <h3>Обнова школске опреме</h3>
 
           <p>
@@ -173,7 +201,7 @@
 
         <!-- Obavestenje 12 -->
         <div class="bb-card">
-          <div class="bb-card-date">07. јул 2025.</div>
+          <div class="bb-card-date">07.05.2025.</div>
           <h3>Завршне активности и доделе</h3>
 
           <p>
@@ -211,6 +239,22 @@
     <!-- Header and Footer + Burger -->
     <script src="header-footer.js"></script>
     <script>window.addEventListener("load", initMasonry);</script>
+
+    <!-- Date conversion and exposing -->
+    <script>
+  (function () {
+    const el = document.querySelector(".bb-card-date");
+    if (!el) return;
+
+    const raw = el.textContent.trim().replace(/\.$/, "");
+    const [dd, mm, yyyy] = raw.split(".");
+    if (!dd || !mm || !yyyy) return;
+
+    const iso = `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
+    window.latestObavestenjeDate = iso; // ← Expose this globally
+  })();
+</script>
+
 </body>
 
 </html>
